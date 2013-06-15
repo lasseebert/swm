@@ -8,9 +8,15 @@ Gem::Specification.new do |spec|
   spec.version       = Swm::VERSION
   spec.authors       = ["Lasse Skindstad Ebert"]
   spec.email         = ["lasseebert@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{
+    Simple Window Manager is a utillity to move and place windows in Ubuntu.
+    It might work with other *nix distributions.
+
+    The utillity is intended to be used with keyboard shortcuts, and is
+    always operating on the active window.
+  }
+  spec.summary       = %q{Simple Window Manager for Ubuntu}
+  spec.homepage      = "https://github.com/lasseebert/swm"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

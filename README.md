@@ -1,18 +1,10 @@
-# Swm
+# Simple Window Manager
 
-TODO: Write a gem description
+NOTE: THIS IS NOT YET DONE!
+
+SWM is a utility to place and resize windows, written for Ubuntu. It might work with other *nix distributions.
 
 ## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'swm'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
 
     $ gem install swm
 
