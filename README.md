@@ -1,7 +1,5 @@
 # Simple Window Manager
 
-NOTE: THIS IS NOT YET DONE!
-
 SWM is a utility to place and resize windows, written for Ubuntu. It might work with other *nix distributions.
 
 ## Installation
@@ -12,7 +10,7 @@ SWM is a utility to place and resize windows, written for Ubuntu. It might work 
 
 Some command line tools are needed:
 
- - xdotool (for getting window id if current window)
+ - xdotool (for getting window id of current window)
  - wmctrl (for moving and reizing windows)
  - xdpyinfo (for getting screen dimensions)
  - xwininfo (for getting window information)
@@ -38,8 +36,8 @@ Will move the window to the left edge of the sceen, preserving the Y position
 
 There are some predefined constants that can be used to specify position:
 
- - For X these are: left, middle and right.
- - For Y is is: top, middle, bottom
+ - For X these are: `left`, `middle` and `right`.
+ - For Y it is: `top`, `middle`, `bottom`.
 
 For example:
 
