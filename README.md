@@ -19,10 +19,14 @@ Install these with apt-get if they are not on your system.
 
 ## Usage
 
+SWM is meant to be assigned to shortcuts and will always work on the currently active window.
+
+For example, I have configured my `Super-1` - `Super-4` to place the current window in the four corners of my screen.
+
 ### Moving windows
 
-Move windows with the move subcommand.
-It accepts parameters x and y which can both be specified in percentages of free screen space.
+Move windows with the `move` subcommand.
+It accepts parameters `x` and `y` which can both be specified in percentages of free screen space.
 
 Examples:
 
