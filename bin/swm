@@ -8,7 +8,12 @@ require 'swm'
 
 def run
   options = get_options
-  Swm::CommandRunner.run options[:command], options[:command_options], options[:global_options]
+  begin
+    Swm::CommandRunner.run options[:command], options[:command_options], options[:global_options]
+  rescue Exception => ex
+    puts ex.message
+    exit(1)
+  end
 end
 
 def get_options
