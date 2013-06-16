@@ -29,6 +29,7 @@ module Swm
       y ||= pos_y
       command = "wmctrl -i -r #{@id} -e 0,#{x},#{y},#{width},#{height}"
       exec command
+      clear_cache
     end
 
     private
@@ -67,6 +68,10 @@ module Swm
 
     def xwininfo_integer_property(name)
       /#{name}: +(\d+)/.match(xwininfo)[1].to_i
+    end
+
+    def clear_cache
+      @xwininfo = nil
     end
   end
 end
