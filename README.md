@@ -2,6 +2,8 @@
 
 SWM is a utility to place and resize windows, written for Ubuntu. It might work with other *nix distributions.
 
+SWM has been confirmed _not_ to work with OS X. Please help fix this :)
+
 ## Installation
 
     $ gem install swm
@@ -11,7 +13,7 @@ SWM is a utility to place and resize windows, written for Ubuntu. It might work 
 Some command line tools are needed:
 
  - xdotool (for getting window id of current window)
- - wmctrl (for moving and reizing windows)
+ - wmctrl (for moving and resizing windows)
  - xdpyinfo (for getting screen dimensions)
  - xwininfo (for getting window information)
 
