@@ -54,7 +54,15 @@ Will move the window to the middle of the right edge.
 
 ### Resizing windows
 
-Not yet supported
+Resize windows with the `resize` command
+It accepts `x1`, `x2`, `y1`, `y2` as the four corners of the window.
+
+Example:
+
+    swm resize --x1 10% --x2 90% --y1 10% --y2 90%
+
+Will resize and move the window so that it has 10% of the screen size to all screen edges.
+
 
 ## Contributing
 
