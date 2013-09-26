@@ -27,7 +27,15 @@ module Swm
     def move(x, y)
       x ||= pos_x
       y ||= pos_y
-      command = "wmctrl -i -r #{@id} -e 0,#{x},#{y},#{width},#{height}"
+      set x, y, nil, nil
+    end
+
+    def set(x, y, w, h)
+      x ||= pos_x
+      y ||= pos_y
+      w ||= width
+      h ||= height
+      command = "wmctrl -i -r #{@id} -e 0,#{x},#{y},#{w},#{h}"
       exec command
       clear_cache
     end

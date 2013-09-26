@@ -1,9 +1,5 @@
 module Swm
-  class MoveCommand
-    def initialize(command_options = {}, global_options = {})
-      @command_options = command_options
-      @global_options = global_options
-    end
+  class MoveCommand < Command
 
     def run
       window = Swm::Window.current
@@ -20,32 +16,5 @@ module Swm
       window.move x, y
     end
 
-    def get_x_percentage
-      get_placement_percentage :x, {
-        left: 0,
-        middle: 50,
-        right: 100
-      }
-    end
-
-    def get_y_percentage
-      get_placement_percentage :y, {
-        top: 0,
-        middle: 50,
-        bottom: 100
-      }
-    end
-
-    def get_placement_percentage(axis, constants)
-      raw_value = @command_options[axis]
-      return nil if raw_value.nil?
-      if value = constants[raw_value.to_sym]
-        value
-      elsif /(\d+(\.\d+)?)\%/ =~ raw_value
-        $1.to_f
-      else
-        raise "Unknown placement option: #{raw_value}. Valid options are percentages (e.g. 30%) and [#{constants.map{|x| x.first.to_s}.join(' ')}]"
-      end
-    end
   end
 end

@@ -53,8 +53,10 @@ end
 
 def get_resize_options
   Trollop::options do
-    opt :width, "The width in pixels", type: Integer
-    opt :height, "The height in pixels", type: Integer
+    opt :x1, "The placement of the left edge:   left, middle, right, or 0%-100%", type: String
+    opt :x2, "The placement of the right edge:  left, middle, right, or 0%-100%", type: String
+    opt :y1, "The placement of the top edge:    top, middle, bottom, or 0%-100%", type: String
+    opt :y2, "The placement of the bottom edge: top, middle, bottom, or 0%-100%", type: String
   end
 end
 
