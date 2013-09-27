@@ -16,11 +16,6 @@ module Swm
       width =   (screen_dimensions[0] * x2 / 100.0).to_i - (x || window.pos_x) if x2
       height =  (screen_dimensions[1] * y2 / 100.0).to_i - (y || window.pos_y) if y2
 
-      puts "x: #{x}"
-      puts "y: #{y}"
-      puts "width: #{width}"
-      puts "height: #{height}"
-
       window.set x, y, width, height
     end
 
