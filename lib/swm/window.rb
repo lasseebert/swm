@@ -1,5 +1,8 @@
 module Swm
   class Window
+
+    attr_reader :id
+
     def self.current
       Window.new `xdotool getwindowfocus`.to_i
     end
@@ -36,7 +39,7 @@ module Swm
       w ||= width
       h ||= height
       command = "wmctrl -i -r #{@id} -e 0,#{x},#{y},#{w},#{h}"
-      exec command
+      system command
       raise "Error running #{command}" unless $?.success?
       clear_cache
     end
