@@ -35,7 +35,9 @@ module Swm
       y ||= pos_y
       w ||= width
       h ||= height
-      exec = "wmctrl -i -r #{@id} -e 0,#{x},#{y},#{w},#{h}"
+      command = "wmctrl -i -r #{@id} -e 0,#{x},#{y},#{w},#{h}"
+      exec command
+      raise "Error running #{command}" unless $?.success?
       clear_cache
     end
 
