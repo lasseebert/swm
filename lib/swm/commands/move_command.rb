@@ -1,17 +1,39 @@
 module Swm
   class MoveCommand
 
-    def run
-      window = Swm::Window.current
+    Command.register("move", self)
 
-      x_percentage = get_x_percentage
-      y_percentage = get_y_percentage
+    def self.run(options)
+      new(options).run
+    end
+
+    def self.print_help
+      puts <<-EOF
+Usage: swm move <options>
+Options:
+  --x: X-coord of top-left corner in percent of screen
+  --y: Y-ccord of top-left corner in percent of screen
+Examples:
+  Move window to top left corner of screen
+    swm resize --x 0 --y 0
+      EOF
+    end
+
+    attr_reader :options
+
+    def initialize(options)
+      @options = options
+    end
+
+    def run
+      x_percent = options[:x]
+      y_percent = options[:y]
 
       screen_dimensions = Screen.dimensions
+      window = Swm::Window.current
 
-      x = y = nil
-      x = ((screen_dimensions[0] - window.width) * x_percentage / 100.0).to_i if x_percentage
-      y = ((screen_dimensions[1] - window.height) * y_percentage / 100.0).to_i if y_percentage
+      x = (screen_dimensions[0] * x_percent / 100.0).to_i
+      y = (screen_dimensions[1] * y_percent / 100.0).to_i
 
       window.move x, y
     end

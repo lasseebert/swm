@@ -6,6 +6,7 @@ This version contains breaking changes - still alpha-like
  - Simpler bin file
  - Simpler architecture
  - Resize command rewritten, now has new args
+ - Move command rewritten and has new args
 
 Missing
 
