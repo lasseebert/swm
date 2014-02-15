@@ -3,6 +3,15 @@
 This version contains breaking changes - still alpha-like
 
  - New simple option parser instead of trollop
+ - Simpler bin file
+ - Simpler architecture
+ - Resize command rewritten, now has new args
+
+Missing
+
+ - Command help message
+ - Error handling
+ - Move command in the new architecture
 
 ## Version 0.2.0 (current)
 
