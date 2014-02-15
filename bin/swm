@@ -9,7 +9,8 @@ if command
   begin
     options = Swm::CliOptions.new(ARGV)
     command.run(options)
-  rescue
+  rescue => e
+    puts e
     command.print_help
   end
 else
