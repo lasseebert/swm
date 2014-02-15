@@ -11,11 +11,14 @@ module Swm
       puts <<-EOF
 Usage: swm move <options>
 Options:
-  --x: X-coord of top-left corner in percent of screen
-  --y: Y-ccord of top-left corner in percent of screen
+  --x: Percentage of free screen width
+  --y: Percentage of free screen height
 Examples:
-  Move window to top left corner of screen
-    swm resize --x 0 --y 0
+  Center the window
+    swm resize --x 50 --y 50
+  Move the window to the top-right corner
+    swm resize --x 100 --y 0
+
       EOF
     end
 
@@ -32,8 +35,8 @@ Examples:
       screen_dimensions = Screen.dimensions
       window = Swm::Window.current
 
-      x = (screen_dimensions[0] * x_percent / 100.0).to_i
-      y = (screen_dimensions[1] * y_percent / 100.0).to_i
+      x = ((screen_dimensions[0] - window.width) * x_percent / 100.0).to_i
+      y = ((screen_dimensions[1] - window.height) * y_percent / 100.0).to_i
 
       window.move x, y
     end
