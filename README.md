@@ -1,3 +1,5 @@
+[![Dependency Status](https://gemnasium.com/lasseebert/swm.png)](https://gemnasium.com/lasseebert/swm)
+
 # Simple Window Manager
 
 SWM is a utility to place and resize windows, written for Ubuntu. It might work with other *nix distributions.
