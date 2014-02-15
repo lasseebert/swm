@@ -1,4 +1,10 @@
-## Version 0.2.0
+## Version 0.3.0 (not released)
+
+This version contains breaking changes - still alpha-like
+
+ - New simple option parser instead of trollop
+
+## Version 0.2.0 (current)
 
  - Resize is supported with the `resize` command
 
