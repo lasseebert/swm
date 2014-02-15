@@ -1,5 +1,5 @@
 module Swm
-  class MoveCommand < Command
+  class MoveCommand
 
     def run
       window = Swm::Window.current

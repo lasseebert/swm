@@ -1,63 +1,18 @@
 #!/usr/bin/env ruby
 
-lib = File.expand_path('../../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require_relative '../lib/swm'
 
-require 'trollop'
-require 'swm'
+command_name = ARGV.shift
+command = Swm::Command.registered_commands[command_name]
+options = Swm::CliOptions.new(ARGV)
 
-def run
-  options = get_options
-  begin
-    Swm::CommandRunner.run options[:command], options[:command_options], options[:global_options]
-  rescue Exception => ex
-    puts ex.message
-    exit(1)
-  end
+if command
+  command.run(options)
+else
+  puts <<-EOF
+Usage: swm <command> <options>
+Commands:
+  resize
+  move
+  EOF
 end
-
-def get_options
-  global_options = Trollop::options do
-    banner "utility that can move and resize windows"
-    stop_on %w[ move resize ]
-  end
-  { global_options: global_options }.merge get_command
-end
-
-def get_command
-  command = ARGV.shift
-  Trollop.die "no command" unless command
-  command = command.to_sym
-  { command: command }.merge get_command_options(command)
-end
-
-def get_command_options(command)
-  {
-    command_options: case command
-    when :move
-      get_move_options
-    when :resize
-      get_resize_options
-    else
-      Trollop::die "unknown command #{command.to_s}"
-    end
-  }
-end
-
-def get_move_options
-  Trollop::options do
-    opt :x, "The placement on the x-axis: left, middle, right, or 0%-100%", type: String
-    opt :y, "The placement on the y-axis: top, middle, bottom, or 0%-100%", type: String
-  end
-end
-
-def get_resize_options
-  Trollop::options do
-    opt :x1, "The placement of the left edge:   left, middle, right, or 0%-100%", type: String
-    opt :x2, "The placement of the right edge:  left, middle, right, or 0%-100%", type: String
-    opt :y1, "The placement of the top edge:    top, middle, bottom, or 0%-100%", type: String
-    opt :y2, "The placement of the bottom edge: top, middle, bottom, or 0%-100%", type: String
-  end
-end
-
-run

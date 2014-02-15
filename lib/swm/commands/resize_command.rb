@@ -1,20 +1,32 @@
 module Swm
-  class ResizeCommand < Command
+  class ResizeCommand
+
+    Command.register("resize", self)
+
+    def self.run(options)
+      new(options).run
+    end
+
+    attr_reader :options
+
+    def initialize(options)
+      @options = options
+    end
 
     def run
-      x1 = get_x_percentage :x1
-      x2 = get_x_percentage :x2
-      y1 = get_y_percentage :y1
-      y2 = get_y_percentage :y2
+      x_percent = options[:x]
+      y_percent = options[:y]
+      width_percent = options[:width]
+      height_percent = options[:height]
 
       screen_dimensions = Screen.dimensions
       window = Swm::Window.current
 
       x = y = width = height = nil
-      x =       (screen_dimensions[0] * x1 / 100.0).to_i if x1
-      y =       (screen_dimensions[1] * y1 / 100.0).to_i if y1
-      width =   (screen_dimensions[0] * x2 / 100.0).to_i - (x || window.pos_x) if x2
-      height =  (screen_dimensions[1] * y2 / 100.0).to_i - (y || window.pos_y) if y2
+      x =       (screen_dimensions[0] * x_percent / 100.0).to_i
+      y =       (screen_dimensions[1] * y_percent / 100.0).to_i
+      width =   (screen_dimensions[0] * width_percent / 100.0).to_i
+      height =  (screen_dimensions[1] * height_percent / 100.0).to_i
 
       window.set x, y, width, height
     end
