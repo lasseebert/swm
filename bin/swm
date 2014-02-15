@@ -4,10 +4,14 @@ require_relative '../lib/swm'
 
 command_name = ARGV.shift
 command = Swm::Command.registered_commands[command_name]
-options = Swm::CliOptions.new(ARGV)
 
 if command
-  command.run(options)
+  begin
+    options = Swm::CliOptions.new(ARGV)
+    command.run(options)
+  rescue
+    command.print_help
+  end
 else
   puts <<-EOF
 Usage: swm <command> <options>

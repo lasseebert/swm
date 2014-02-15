@@ -7,6 +7,20 @@ module Swm
       new(options).run
     end
 
+    def self.print_help
+      puts <<-EOF
+Usage: swm resize <options>
+Options:
+  --x:      X-coord of top-left corner in percent of screen
+  --y:      Y-ccord of top-left corner in percent of screen
+  --width:  Width in percent of screen
+  --height: Height in percent of screen
+Examples:
+  Make window fill 80 percent of screen in each dimension with a 10 percent margin:
+    swm resize --x 10 --y 10 --width 80 --height 80
+      EOF
+    end
+
     attr_reader :options
 
     def initialize(options)
