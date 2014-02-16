@@ -34,41 +34,29 @@ It accepts parameters `x` and `y` which can both be specified in percentages of 
 
 Examples:
 
-    swm move --x 50% --y 50%
+    swm move --x 50 --y 50
 
 Will center the window
 
-    swm move --x 0%
+    swm move --x 0 --y 100
 
-Will move the window to the left edge of the sceen, preserving the Y position
-
-There are some predefined constants that can be used to specify position:
-
- - For X these are: `left`, `middle` and `right`.
- - For Y it is: `top`, `middle`, `bottom`.
-
-For example:
-
-    swm move --x right --y middle
-
-Will move the window to the middle of the right edge.
-
+Will move the window to the top right corner
 
 ### Resizing windows
 
 Resize windows with the `resize` command
-It accepts `x1`, `x2`, `y1`, `y2` as the four corners of the window.
+It accepts `x`, `y`, `width` and `height`.
 
 Example:
 
-    swm resize --x1 10% --x2 90% --y1 10% --y2 90%
+    swm resize --x 10 --y 10 --width 80 --height 80
 
 Will resize and move the window so that it has 10% of the screen size to all screen edges.
 
 
 ## Contributing
 
-1. Fork it
+1. Fork 8t
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
