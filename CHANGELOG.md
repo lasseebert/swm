@@ -1,4 +1,4 @@
-## Version 0.3.0 (not released)
+## Version 0.3.0 (current)
 
 This version contains breaking changes - still alpha-like
 
@@ -8,13 +8,7 @@ This version contains breaking changes - still alpha-like
  - Resize command rewritten, now has new args
  - Move command rewritten and has new args
 
-Missing
-
- - Command help message
- - Error handling
- - Move command in the new architecture
-
-## Version 0.2.0 (current)
+## Version 0.2.0
 
  - Resize is supported with the `resize` command
 
