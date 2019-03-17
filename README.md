@@ -2,6 +2,8 @@
 
 # Simple Window Manager
 
+**NOTE**: This repo is not maintained.
+
 SWM is a utility to place and resize windows, written for Ubuntu. It might work with other *nix distributions.
 
 SWM has been confirmed _not_ to work with OS X. Please help fix this :)
